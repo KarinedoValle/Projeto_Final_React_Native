@@ -6,13 +6,22 @@ import ListarStyle from "../styles/ListarStyles";
 
 function ListarFuncionarios() {
   const [DATA, setDATA] = useState([]);
-  const [listaFuncionarios, setListaFuncionarios] = useState([]);
+  // const [listaFuncionarios, setListaFuncionarios] = useState([]);
 
   useEffect(() => {
     Funcionarios.createTable();
     Api.get(`/funcionario`)
       .then((response) => {
+<<<<<<< HEAD
         salvarListagem(response.data);
+=======
+        setDATA(response.data);
+        // salvar();
+        // for (var i = 0; i < response.data.length; i++) {
+        //   Funcionarios.create(response.data[i]);
+        //   console.log(response.data[i]);
+        // }
+>>>>>>> 82663c99c00ee7c4f87ad073c9061c0f558801fa
       })
       .catch((error) => console.log(error));
   });

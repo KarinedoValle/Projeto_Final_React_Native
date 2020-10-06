@@ -31,7 +31,7 @@ const AtualizarStyle = StyleSheet.create({
   },
   fundo: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#D4EAFA'
   },
   dados: {
     fontSize: 15,

@@ -17,7 +17,7 @@ const HomeStyle = StyleSheet.create({
   },
   fundo: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#5AD3FE54",
   },
 });
 

@@ -20,23 +20,23 @@ const ListarStyle = StyleSheet.create({
   },
   txt: {
     textAlign: "justify",
-    marginVertical: 3
+    marginVertical: 3,
   },
   input: {
     borderColor: "black",
     borderWidth: 1,
     textAlign: "center",
-    padding: 5
+    padding: 5,
   },
   fundo: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: "#D4EAFA",
   },
   dados: {
     fontSize: 15,
     marginTop: 20,
-    marginBottom:20
-  }
+    marginBottom: 20,
+  },
 });
 
 export default ListarStyle;

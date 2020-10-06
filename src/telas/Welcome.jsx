@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, TouchableOpacity, SafeAreaView } from "react-native";
+import { Text, View, TouchableOpacity, SafeAreaView, Image } from "react-native";
 import Funcionarios from "../Models/FuncionarioModel";
 import WelcomeStyle from "../styles/WelcomeStyle";
 import * as SQLite from "expo-sqlite";
@@ -23,7 +23,12 @@ function Welcome({ navigation }) {
       <SafeAreaView style={WelcomeStyle.fundo}>
         <View style={WelcomeStyle.body}>
           <Text style={WelcomeStyle.titulo}>Tela Welcome</Text>
-          <Text style={WelcomeStyle.txt}>Splashscreen</Text>
+          <View style={{ flex: 1 }}>
+            <Image
+              style={WelcomeStyle.img}
+              source={require("../assets/images/hero.png")}
+            />
+          </View>
           <TouchableOpacity onPress={onPress} style={WelcomeStyle.botao}>
             <Text>Clique aqui</Text>
           </TouchableOpacity>

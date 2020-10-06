@@ -7,7 +7,7 @@ const WelcomeStyle = StyleSheet.create({
   titulo: {
     textAlign: "center",
     fontSize: 23,
-    marginTop: 20,
+    marginTop: 100,
     marginBottom: 30,
   },
   botao: {
@@ -24,6 +24,14 @@ const WelcomeStyle = StyleSheet.create({
   fundo: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  img: {
+    marginTop: 100,
+    alignSelf: 'center',
+    padding: 90,
+    marginRight: 20,
+    width: 400,
+    height: 100
   },
 });
 

@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 function StackNavigation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen options = {{headerTitleAlign: 'center'}} name="Welcome" component={Welcome} />
+      <Stack.Screen options = {{ headerShown: false}} name="Welcome" component={Welcome} />
       <Stack.Screen name="Hero Company" component={DrawerNavigation} />
     </Stack.Navigator>
   );
