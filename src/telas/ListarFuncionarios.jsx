@@ -6,7 +6,7 @@ import ListarStyle from "../styles/ListarStyles";
 
 function ListarFuncionarios() {
   const [DATA, setDATA] = useState([]);
-  const [listaFuncionarios, setListaFuncionarios] = useState([]);
+  // const [listaFuncionarios, setListaFuncionarios] = useState([]);
 
   useEffect(() => {
     // const salvar = async () => {
@@ -22,10 +22,10 @@ function ListarFuncionarios() {
       .then((response) => {
         setDATA(response.data);
         // salvar();
-        for (var i = 0; i < response.data.length; i++) {
-          Funcionarios.create(response.data[i]);
-          console.log(response.data[i]);
-        }
+        // for (var i = 0; i < response.data.length; i++) {
+        //   Funcionarios.create(response.data[i]);
+        //   console.log(response.data[i]);
+        // }
       })
       .catch((error) => console.log(error));
   });
@@ -37,7 +37,7 @@ function ListarFuncionarios() {
           <View style={ListarStyle.body}>
             <Text style={ListarStyle.titulo}>Tela ListarFuncionarios</Text>
             <FlatList
-              data={listaFuncionarios}
+              data={DATA}
               renderItem={({ item }) => (
                 <View style={ListarStyle.dados}>
                   <Text style={ListarStyle.txt}>Id: {item.id}</Text>

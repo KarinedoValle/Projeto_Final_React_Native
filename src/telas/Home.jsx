@@ -5,16 +5,16 @@ import HomeStyle from "../styles/HomeStyle";
 function Home() {
   return (
     <>
-    <SafeAreaView style={HomeStyle.fundo}>
-      <View style={HomeStyle.body}>
-        <Text style={HomeStyle.titulo}>Tela Home</Text>
-        <View style={{ flex: 1 }}>
-          <Image
-            style={HomeStyle.img}
-            source={require('../assets/images/home.png')}
-          />
+      <SafeAreaView style={HomeStyle.fundo}>
+        <View style={HomeStyle.body}>
+          <Text style={HomeStyle.titulo}>Home</Text>
+          <View style={{ flex: 1 }}>
+            <Image
+              style={HomeStyle.img}
+              source={require("../assets/images/home.png")}
+            />
+          </View>
         </View>
-      </View>
       </SafeAreaView>
     </>
   );

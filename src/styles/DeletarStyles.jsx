@@ -31,7 +31,7 @@ const DeletarStyle = StyleSheet.create({
   },
   fundo: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#D4EAFA",
   },
   dados: {
     marginTop: 20,
