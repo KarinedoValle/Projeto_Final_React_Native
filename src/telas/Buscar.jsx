@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text, TextInput, View, SafeAreaView } from "react-native";
 import Api from "../api/Api";
+import Funcionarios from '../Models/FuncionarioModel'
 import BuscarStyle from "../styles/BuscarStyles";
 
 function Buscar() {
@@ -13,8 +14,12 @@ function Buscar() {
         .then((response) => {
           setDATA(response.data);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error)
+          // Funcionarios.find(id)
+        });
     }
+
   }, [id]);
 
   return (
