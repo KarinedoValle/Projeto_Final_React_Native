@@ -2,17 +2,8 @@ import React, { useEffect } from "react";
 import { Text, View, TouchableOpacity, SafeAreaView, Image } from "react-native";
 import Funcionarios from "../Models/FuncionarioModel";
 import WelcomeStyle from "../styles/WelcomeStyle";
-import * as SQLite from "expo-sqlite";
-const db = SQLite.openDatabase("database.db");
 
 function Welcome({ navigation }) {
-  useEffect(() => {
-    Funcionarios.createTable();
-    
-    // db.transaction((tx) => {
-    //   tx.executeSql(`CREATE TABLE IF NOT EXISTS ${Funcionarios}`);
-    // });
-  });
 
   const onPress = () => {
     navigation.navigate("Hero Company");
