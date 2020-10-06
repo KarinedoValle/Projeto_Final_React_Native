@@ -1,19 +1,23 @@
 import React from "react";
-import { Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text, View, TouchableOpacity, SafeAreaView } from "react-native";
+import WelcomeStyle from "../styles/WelcomeStyle";
 
 function Welcome({ navigation }) {
   const onPress = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Hero Company");
   };
 
   return (
     <>
-      <Text>Tela Welcome</Text>
-      <Text>Splashscreen</Text>
-      <TouchableOpacity onPress={onPress} style = {{borderColor: 'black', borderWidth: 2, marginHorizontal: 10}}>
-        <Text>Clique aqui</Text>
-      </TouchableOpacity>
+      <SafeAreaView style={WelcomeStyle.fundo}>
+        <View style={WelcomeStyle.body}>
+          <Text style={WelcomeStyle.titulo}>Tela Welcome</Text>
+          <Text style={WelcomeStyle.txt}>Splashscreen</Text>
+          <TouchableOpacity onPress={onPress} style={WelcomeStyle.botao}>
+            <Text>Clique aqui</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     </>
   );
 }

@@ -5,6 +5,7 @@ import Buscar from "../telas/Buscar";
 import ListarFuncionarios from "../telas/ListarFuncionarios";
 import AtualizarFuncionarios from "../telas/AtualizarFuncionarios";
 import DeletarFuncionarios from "../telas/DeletarFuncionarios";
+import PostarFuncionarios from "../telas/PostarFuncionario";
 
 const Drawer = createDrawerNavigator();
 
@@ -16,6 +17,10 @@ function DrawerNavigation() {
       <Drawer.Screen
         name="Listar Funcionários"
         component={ListarFuncionarios}
+      />
+      <Drawer.Screen
+        name="Inserir Funcionários"
+        component={PostarFuncionarios}
       />
       <Drawer.Screen
         name="Atualizar Funcionários"

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Api from "../api/Api";
+import AtualizarStyle from '../styles/AtualizarStyles'
 
 function AtualizarFuncionarios() {
   const [id, setId] = useState("");
@@ -41,34 +42,38 @@ function AtualizarFuncionarios() {
 
   return (
     <>
-      <Text>Tela AtualizarFuncionarios</Text>
+    <SafeAreaView style={AtualizarStyle.fundo}>
+      <View style={AtualizarStyle.body}>
+      <Text style={AtualizarStyle.titulo}>Tela AtualizarFuncionarios</Text>
       <TextInput
-        style={{ borderColor: "black", borderWidth: 2, marginHorizontal: 10 }}
+        style={AtualizarStyle.input}
         onChangeText={(text) => {
           setId(text);
         }}
         placeholder="Id"
       ></TextInput>
       <TextInput
-        style={{ borderColor: "black", borderWidth: 2, marginHorizontal: 10 }}
+        style={AtualizarStyle.input}
         onChangeText={(text) => {
           setNome(text);
         }}
         placeholder="Nome"
       ></TextInput>
       <TextInput
-        style={{ borderColor: "black", borderWidth: 2, marginHorizontal: 10 }}
+        style={AtualizarStyle.input}
         onChangeText={(text) => {
           setCpf(text);
         }}
         placeholder="CPF"
       ></TextInput>
       <TouchableOpacity
-        style={{ borderColor: "black", borderWidth: 2, marginHorizontal: 10 }}
+        style={AtualizarStyle.botao}
         onPress={salvar}
       >
         <Text>Enviar</Text>
       </TouchableOpacity>
+      </View>
+      </SafeAreaView>
     </>
   );
 }

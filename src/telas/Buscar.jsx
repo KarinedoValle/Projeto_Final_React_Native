@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Text, TextInput } from "react-native";
-import Api from '../api/Api'
+import { Text, TextInput, View, SafeAreaView } from "react-native";
+import Api from "../api/Api";
+import BuscarStyle from "../styles/BuscarStyles";
 
 function Buscar() {
-const [id, setId] = useState('')
+  const [id, setId] = useState("");
+  const [DATA, setDATA] = useState([])
 
   useEffect(() => {
-    if(id !== '') {
-    Api.get(`/funcionario/${id}`).then(response => {
-      console.log(response.data)
-    }).catch(error => console.log(error))
-  }
-  }, [id])
-
+    if (id !== "") {
+      Api.get(`/funcionario/${id}`)
+        .then((response) => {
+          setDATA(response.data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [id]);
 
   return (
     <>
-      <Text>Tela Buscar</Text>
-      <TextInput style = {{borderColor: 'black', borderWidth: 2, marginHorizontal: 10}} onChangeText = {text => {setId(text)}}></TextInput>
+    <SafeAreaView style={BuscarStyle.fundo}>
+      <View style={BuscarStyle.body}>
+        <Text style={BuscarStyle.titulo}>Tela Buscar</Text>
+        <TextInput
+          style={BuscarStyle.input}
+          onChangeText={(text) => {
+            setId(text);
+          }}
+          placeholder="Digite um Id"
+        ></TextInput>
+        <View style={BuscarStyle.dados}>
+        <Text style={BuscarStyle.txt}>Id: {DATA.id}</Text>
+        <Text style={BuscarStyle.txt}>Nome: {DATA.nome}</Text>
+        <Text style={BuscarStyle.txt}>CPF: {DATA.cpf}</Text>
+        </View>
+      </View>
+      </SafeAreaView>
     </>
   );
 }
