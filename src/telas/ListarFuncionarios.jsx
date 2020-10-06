@@ -9,26 +9,31 @@ function ListarFuncionarios() {
   const [listaFuncionarios, setListaFuncionarios] = useState([]);
 
   useEffect(() => {
-    // const salvar = async () => {
-    //   const dados = {
-    //     columns: "id, nome, cpf",
-    //   };
-
-    //   // setListaFuncionarios(Funcionarios.query(dados));
-    //   console.log(await Funcionarios.find(1));
-    // };
-
+    Funcionarios.createTable();
     Api.get(`/funcionario`)
       .then((response) => {
-        setDATA(response.data);
-        // salvar();
-        for (var i = 0; i < response.data.length; i++) {
-          Funcionarios.create(response.data[i]);
-          console.log(response.data[i]);
-        }
+        salvarListagem(response.data);
       })
       .catch((error) => console.log(error));
   });
+
+  const salvarListagem = async (lista) =>{
+    Funcionarios.destroyAll()
+    for(let i = 0; i < lista.length; i++){
+      const func = lista[i]
+      const props ={
+        id: func.id,
+        nome: func.nome,
+        cpf: func.cpf
+      }
+      Funcionarios.create(props)
+    }
+    const options = {
+      columns: 'id, nome, cpf',
+      order: 'id ASC'
+    }
+    setDATA(await Funcionarios.query(options))
+  }
 
   return (
     <>
@@ -37,7 +42,7 @@ function ListarFuncionarios() {
           <View style={ListarStyle.body}>
             <Text style={ListarStyle.titulo}>Tela ListarFuncionarios</Text>
             <FlatList
-              data={listaFuncionarios}
+              data={DATA}
               renderItem={({ item }) => (
                 <View style={ListarStyle.dados}>
                   <Text style={ListarStyle.txt}>Id: {item.id}</Text>

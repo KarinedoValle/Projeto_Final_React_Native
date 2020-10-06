@@ -5,7 +5,7 @@ import Funcionarios from '../Models/FuncionarioModel'
 import BuscarStyle from "../styles/BuscarStyles";
 
 function Buscar() {
-  const [id, setId] = useState("");
+  const [id, setId] = useState('');
   const [DATA, setDATA] = useState([])
 
   useEffect(() => {
@@ -16,10 +16,13 @@ function Buscar() {
         })
         .catch((error) => {
           console.log(error)
-          // Funcionarios.find(id)
+          const pegarOffline = async() => {
+            const func = await Funcionarios.find(id)
+            setDATA(func)
+          }
+          pegarOffline()
         });
     }
-
   }, [id]);
 
   return (
