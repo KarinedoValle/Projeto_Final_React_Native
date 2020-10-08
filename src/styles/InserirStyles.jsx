@@ -17,6 +17,8 @@ const InserirStyle = StyleSheet.create({
     padding: 10,
     borderColor: "black",
     borderWidth: 1,
+    backgroundColor: "#092834",
+    borderRadius: 10,
   },
   txt: {
     textAlign: "justify",
@@ -27,15 +29,20 @@ const InserirStyle = StyleSheet.create({
     borderWidth: 1,
     textAlign: "center",
     padding: 5,
-    marginBottom: 8,
+    marginBottom: 10,
+    borderRadius: 10,
   },
   fundo: {
     flex: 1,
-    backgroundColor: "#D4EAFA",
+    backgroundColor: "#feffe8",
   },
   dados: {
     fontSize: 15,
     marginTop: 20,
+  },
+  botaoTxt: {
+    fontWeight: "bold",
+    color: "#fff",
   },
 });
 

@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/nova-logo.png",
-      "resizeMode": "contain",
+      "resizeMode": "center",
       "backgroundColor": "#fff"
     },
     "updates": {

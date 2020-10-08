@@ -11,8 +11,14 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigation() {
   return (
-    <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Home} />
+    <Drawer.Navigator initialRouteName="Home"
+    
+    options={{ headerShown: false}}>
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
       <Drawer.Screen name="Buscar Funcionários" component={Buscar} />
       <Drawer.Screen
         name="Listar Funcionários"

@@ -5,6 +5,8 @@ const HomeStyle = StyleSheet.create({
     marginHorizontal: 30,
   },
   titulo: {
+    paddingTop: 60,
+    marginBottom: 60,
     textAlign: "center",
     fontSize: 23,
     marginTop: 20,
@@ -17,7 +19,12 @@ const HomeStyle = StyleSheet.create({
   },
   fundo: {
     flex: 1,
-    backgroundColor: "#5AD3FE54",
+    backgroundColor: "#feffe8",
+  },
+  txt: {
+    textAlign: "right",
+    marginBottom: 5,
+    fontSize: 18,
   },
 });
 
