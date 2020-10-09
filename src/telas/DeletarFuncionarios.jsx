@@ -20,15 +20,12 @@ function DeletarFuncionarios() {
       Api.delete(`/funcionario/${id}`)
         .then((response) => {
           Alert.alert("Sucesso", "Funcionário deletado!");
-          setId();
-          setNome();
-          setCpf();
+          setId("");
           setDados({});
-          console.log("vai filho");
         })
         .catch((error) => {
           Alert.alert("Erro", "Não foi possível deletar o funcionário");
-          console.log("vou");
+          console.log(error);
         });
     } else {
       Alert.alert("Por favor, digite um Id.");
@@ -41,7 +38,7 @@ function DeletarFuncionarios() {
         .then((response) => {
           setDados(response.data);
         })
-        .catch((error) => console.log("Deu erro"));
+        .catch((error) => console.log(error));
     }
   };
 

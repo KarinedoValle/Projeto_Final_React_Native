@@ -36,14 +36,14 @@ function CadastrarFuncionarios({ navigation, route }) {
     }
     const funcionarioSalvo = funcionarios.filter((funcionario) => {
       if (funcionario.cpf === cpf) {
-        console.log(funcionario.cpf);
+        
         return true;
       }
       return false;
     });
 
     if (funcionarioSalvo.length <= 0) {
-      console.log("retorno da verificação", funcionarioSalvo);
+      
       Api.post(`/funcionario`, { nome: nome, cpf: cpf })
         .then(() => {
           Alert.alert("Usuário cadastrado com sucesso!");

@@ -35,6 +35,7 @@ function AtualizarFuncionarios() {
       })
       .catch((error) => {
         Alert.alert("Erro!", "Não foi possível atualizazar!");
+        console.log(error)
       });
   };
 
