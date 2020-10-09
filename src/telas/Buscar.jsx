@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, TextInput, View, SafeAreaView } from "react-native";
+import { Text, TextInput, View, SafeAreaView, TouchableOpacity, Alert } from "react-native";
 import Api from "../api/Api";
 import Funcionarios from "../Models/FuncionarioModel";
 import BuscarStyle from "../styles/BuscarStyles";
@@ -8,32 +8,29 @@ function Buscar() {
   const [id, setId] = useState("");
   const [DATA, setDATA] = useState([]);
 
-  useEffect(() => {
+  const onPress = async () => {
+    const func = await Funcionarios.find(id);
     if (id !== "") {
       Api.get(`/funcionario/${id}`)
         .then((response) => {
           if (response.data !== null) {
             setDATA(response.data);
+          }else{
+            setDATA("");
           }
-          setDATA("");
         })
         .catch((error) => {
-          console.log(error);
-          const pegarOffline = async () => {
-            const func = await Funcionarios.find(id);
+          setDATA("");
+          if (func !== null) {
+            setDATA(func);
+          }
+          if (func === null) {
             setDATA("");
-            console.log(id);
-            if (response.data !== null) {
-              setDATA(response.data);
-            }
-            if (id === null) {
-              setDATA("");
-            }
-          };
-          pegarOffline();
+            Alert.alert('Erro','Não existe um funcionário com o id especificado')
+          }
         });
     }
-  }, [id]);
+  }
 
   return (
     <>
@@ -58,6 +55,9 @@ function Buscar() {
               <Text style={BuscarStyle.txt1}>CPF:</Text> {DATA.cpf}
             </Text>
           </View>
+          <TouchableOpacity onPress={onPress} style={BuscarStyle.botao}>
+              <Text style={BuscarStyle.botaoTxt}>Buscar</Text>
+            </TouchableOpacity>
         </View>
       </SafeAreaView>
     </>

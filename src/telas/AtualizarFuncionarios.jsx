@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View, Alert } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Api from "../api/Api";
 import AtualizarStyle from '../styles/AtualizarStyles'
@@ -32,7 +32,7 @@ function AtualizarFuncionarios() {
       Api.get(`/funcionario/${id}`)
         .then((response) => {
           setFuncionarioSalvo(response.data);
-          console.log(response.data);
+          Alert.alert('Sucesso', 'Funcionário atualizado!')
         })
         .catch((error) => {
           console.log(error);
@@ -44,7 +44,7 @@ function AtualizarFuncionarios() {
     <>
     <SafeAreaView style={AtualizarStyle.fundo}>
       <View style={AtualizarStyle.body}>
-      <Text style={AtualizarStyle.titulo}>Tela AtualizarFuncionarios</Text>
+      <Text style={AtualizarStyle.titulo}>Atualizar</Text>
       <TextInput
         style={AtualizarStyle.input}
         onChangeText={(text) => {
@@ -70,7 +70,7 @@ function AtualizarFuncionarios() {
         style={AtualizarStyle.botao}
         onPress={salvar}
       >
-        <Text>Enviar</Text>
+        <Text style={AtualizarStyle.txt}>Enviar</Text>
       </TouchableOpacity>
       </View>
       </SafeAreaView>

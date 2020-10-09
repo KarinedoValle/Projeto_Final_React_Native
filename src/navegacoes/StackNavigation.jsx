@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Welcome from "../telas/Welcome";
 import DrawerNavigation from "./DrawerNavigation";
-import PostarFuncionarios from "../telas/PostarFuncionario";
+import CadastrarFuncionarios from "../telas/CadastrarFuncionarios";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,7 @@ function StackNavigation() {
         component={DrawerNavigation}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Cadastre-se" component={PostarFuncionarios} />
+      <Stack.Screen name="Cadastre-se" component={CadastrarFuncionarios} />
     </Stack.Navigator>
   );
 }

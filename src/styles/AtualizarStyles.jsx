@@ -5,10 +5,13 @@ const AtualizarStyle = StyleSheet.create({
     marginHorizontal: 30,
   },
   titulo: {
+    paddingTop: 60,
+    marginBottom: 60,
     textAlign: "center",
-    fontSize: 23,
+    fontSize: 30,
     marginTop: 20,
-    marginBottom: 30,
+    color: "#092834",
+    fontWeight: "bold",
   },
   botao: {
     marginTop: 30,
@@ -17,21 +20,24 @@ const AtualizarStyle = StyleSheet.create({
     padding: 10,
     borderColor: "black",
     borderWidth: 1,
+    backgroundColor: "#092834",
+    borderRadius: 10,
   },
   txt: {
-    textAlign: "justify",
-    marginVertical: 3
+    fontWeight: "bold",
+    color: "#fff"
   },
   input: {
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "#092834",
+    borderWidth: 2,
+    borderRadius: 10,
     textAlign: "center",
     padding: 5,
-    marginBottom:8
+    marginBottom:8,
   },
   fundo: {
     flex: 1,
-    backgroundColor: '#D4EAFA'
+    backgroundColor: "#feffe8",
   },
   dados: {
     fontSize: 15,

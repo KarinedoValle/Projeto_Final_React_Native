@@ -11,6 +11,8 @@ import { TextInput } from "react-native-gesture-handler";
 import Api from "../api/Api";
 import Funcionarios from "../Models/FuncionarioModel";
 import WelcomeStyle from "../styles/WelcomeStyle";
+import * as SQLite from "expo-sqlite";
+import DatabaseLayer from 'expo-sqlite-orm/src/DatabaseLayer'
 
 function Welcome({ navigation }) {
   const [cpf, setCpf] = useState();
@@ -18,18 +20,11 @@ function Welcome({ navigation }) {
 
   const onPress = async () => {
     const usuario = await Funcionarios.findBy({ cpf_eq: cpf });
-    if ((await Funcionarios.findBy({ cpf_eq: cpf })) !== null) {
+    if (usuario !== null) {
       navigation.navigate("Hero Company", { nome: usuario.nome });
-      // navigation.reset({
-      //   index: 0,
-      //   routes: [{ name: "Hero Company" }, { nome: usuario.nome }],
-      // });
     } else {
       Alert.alert("Não foi encontrado um registro para este CPF.");
     }
-    // Professor fez
-    // Funcionarios.dropTable();
-    // console.log("OIr");
   };
 
   const cadastrar = () => {
@@ -37,36 +32,17 @@ function Welcome({ navigation }) {
   };
 
   useEffect(() => {
+    Funcionarios.dropTable();
     Funcionarios.createTable();
+    
     Api.get(`/funcionario`)
       .then((response) => {
-        salvarListagem(response.data);
-        console.log(response.data);
+        const func = response.data
+        const databaseLayer = new DatabaseLayer(async () => SQLite.openDatabase('database.db'), 'Funcionarios')
+        databaseLayer.bulkInsertOrReplace(func)
       })
       .catch((error) => console.log(error));
   }, []);
-
-  const salvarListagem = async (lista) => {
-    //Parte que o professor fez
-    await Funcionarios.destroyAll();
-    lista.map((funcionario) => {
-      const props = {
-        id: funcionario.id,
-        nome: funcionario.nome,
-        cpf: funcionario.cpf,
-      };
-      Funcionarios.create(props);
-    });
-    /*     for (let i = 0; i < lista.length; i++) {
-      const func = lista[i];
-      const props = {
-        id: func.id,
-        nome: func.nome,
-        cpf: func.cpf,
-      };
-      Funcionarios.create(props);
-    } */
-  };
 
   return (
     <>

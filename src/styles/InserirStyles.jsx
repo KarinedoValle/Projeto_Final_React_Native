@@ -5,10 +5,13 @@ const InserirStyle = StyleSheet.create({
     marginHorizontal: 30,
   },
   titulo: {
+    paddingTop: 60,
+    marginBottom: 60,
     textAlign: "center",
-    fontSize: 23,
+    fontSize: 30,
     marginTop: 20,
-    marginBottom: 30,
+    color: "#092834",
+    fontWeight: "bold",
   },
   botao: {
     marginTop: 30,
@@ -25,8 +28,8 @@ const InserirStyle = StyleSheet.create({
     marginVertical: 3,
   },
   input: {
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "#092834",
+    borderWidth: 2,
     textAlign: "center",
     padding: 5,
     marginBottom: 10,

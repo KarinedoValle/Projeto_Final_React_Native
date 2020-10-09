@@ -9,38 +9,30 @@ function ListarFuncionarios() {
   // const [listaFuncionarios, setListaFuncionarios] = useState([]);
 
   useEffect(() => {
-    Funcionarios.createTable();
     Api.get(`/funcionario`)
-      .then((response) => {
-        salvarListagem(response.data);
-      })
-      .catch((error) => console.log(error));
-  });
-
-  const salvarListagem = async (lista) =>{
-    Funcionarios.destroyAll()
-    for(let i = 0; i < lista.length; i++){
-      const func = lista[i]
-      const props ={
-        id: func.id,
-        nome: func.nome,
-        cpf: func.cpf
+    .then((response) => {
+      if (response.data !== null) {
+        setDATA(response.data);
+      }else{
+        setDATA("");
       }
-      Funcionarios.create(props)
-    }
-    const options = {
-      columns: 'id, nome, cpf',
-      order: 'id ASC'
-    }
-    setDATA(await Funcionarios.query(options))
-  }
+    }).catch(() => {
+      async function pegarListagem(){
+        const options = {
+          columns: 'id, nome, cpf',
+          order: 'id ASC'
+        }
+        setDATA(await Funcionarios.query(options))
+      }
+    })
+  });
 
   return (
     <>
       <SafeAreaView style={ListarStyle.fundo}>
-        <ScrollView>
+        {/* <ScrollView> */}
           <View style={ListarStyle.body}>
-            <Text style={ListarStyle.titulo}>Tela ListarFuncionarios</Text>
+            <Text style={ListarStyle.titulo}>Funcionários</Text>
             <FlatList
               data={DATA}
               renderItem={({ item }) => (
@@ -50,9 +42,10 @@ function ListarFuncionarios() {
                   <Text style={ListarStyle.txt}>CPF: {item.cpf}</Text>
                 </View>
               )}
+              keyExtractor={item => item.id.toString()}
             />
           </View>
-        </ScrollView>
+        {/* </ScrollView> */}
       </SafeAreaView>
     </>
   );

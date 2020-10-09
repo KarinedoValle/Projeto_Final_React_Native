@@ -3,13 +3,16 @@ import { StyleSheet } from "react-native";
 const HomeStyle = StyleSheet.create({
   body: {
     marginHorizontal: 30,
+    flex: 1
   },
   titulo: {
     paddingTop: 60,
     marginBottom: 60,
     textAlign: "center",
-    fontSize: 23,
+    fontSize: 30,
     marginTop: 20,
+    color: "#092834",
+    fontWeight: "bold",
   },
   img: {
     marginTop: 30,
@@ -22,10 +25,20 @@ const HomeStyle = StyleSheet.create({
     backgroundColor: "#feffe8",
   },
   txt: {
-    textAlign: "right",
+    textAlign: "left",
     marginBottom: 5,
     fontSize: 18,
+    color: "#092834",
+    fontWeight: "bold",
   },
+  explicativo: {
+    textAlign: "right",
+    marginTop: 50,
+    marginBottom: 5,
+    fontSize: 18,
+    color: "#092834",
+    fontWeight: "bold",
+  }
 });
 
 export default HomeStyle;

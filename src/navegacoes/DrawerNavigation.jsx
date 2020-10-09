@@ -9,14 +9,21 @@ import PostarFuncionarios from "../telas/PostarFuncionario";
 
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigation() {
+function DrawerNavigation({route}) {
+  const {nome} = route.params;
   return (
     <Drawer.Navigator initialRouteName="Home"
-    
-    options={{ headerShown: false}}>
+    drawerPosition='right'
+    options={{ headerShown: false}}
+    drawerContentOptions={{
+      backgroundColor: 'rgba(254, 255, 232,1)',
+      activeBackgroundColor: 'rgba(255, 193, 99,1)',
+      activeTintColor: 'rgba(255, 255, 255,1)'
+    }}
+    >
       <Drawer.Screen
         name="Home"
-        component={Home}
+        component={(props) => <Home {...props} nome={nome}/>}
         options={{ headerShown: false }}
       />
       <Drawer.Screen name="Buscar Funcionários" component={Buscar} />

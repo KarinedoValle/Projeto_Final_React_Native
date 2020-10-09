@@ -38,8 +38,8 @@ const WelcomeStyle = StyleSheet.create({
     height: 100,
   },
   input: {
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "#092834",
+    borderWidth: 2,
     textAlign: "center",
     padding: 5,
     marginBottom: 10,

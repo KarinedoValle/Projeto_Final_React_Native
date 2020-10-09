@@ -10,11 +10,12 @@ import { TextInput } from "react-native-gesture-handler";
 import Api from "../api/Api";
 import InserirStyle from "../styles/InserirStyles";
 
-function PostarFuncionarios({ navigation }) {
+function CadastrarFuncionarios({ navigation, route }) {
   const [id, setId] = useState("");
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
   const [funcionarios, setFuncionarios] = useState([]);
+  const { cadastro } = route.params;
 
   useEffect(() => {
     Api.get(`/funcionario`)
@@ -50,8 +51,8 @@ function PostarFuncionarios({ navigation }) {
           console.log(error);
         });
     } else {
-      console.log('retorno da else', funcionarioSalvo)
       Alert.alert("Este CPF já está cadastrado.");
+      navigation.navigate('Welcome')
     }
   };
 
@@ -83,4 +84,4 @@ function PostarFuncionarios({ navigation }) {
   );
 }
 
-export default PostarFuncionarios;
+export default CadastrarFuncionarios;
