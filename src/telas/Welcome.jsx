@@ -12,7 +12,8 @@ import Api from "../api/Api";
 import Funcionarios from "../Models/FuncionarioModel";
 import WelcomeStyle from "../styles/WelcomeStyle";
 import * as SQLite from "expo-sqlite";
-import DatabaseLayer from 'expo-sqlite-orm/src/DatabaseLayer'
+import DatabaseLayer from "expo-sqlite-orm/src/DatabaseLayer";
+import SoBotao from "../components/SoBotao";
 
 function Welcome({ navigation }) {
   const [cpf, setCpf] = useState();
@@ -34,12 +35,15 @@ function Welcome({ navigation }) {
   useEffect(() => {
     Funcionarios.dropTable();
     Funcionarios.createTable();
-    
+
     Api.get(`/funcionario`)
       .then((response) => {
-        const func = response.data
-        const databaseLayer = new DatabaseLayer(async () => SQLite.openDatabase('database.db'), 'Funcionarios')
-        databaseLayer.bulkInsertOrReplace(func)
+        const func = response.data;
+        const databaseLayer = new DatabaseLayer(
+          async () => SQLite.openDatabase("database.db"),
+          "Funcionarios"
+        );
+        databaseLayer.bulkInsertOrReplace(func);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -64,18 +68,21 @@ function Welcome({ navigation }) {
           </View>
 
           <View style={WelcomeStyle.div}>
-            <TouchableOpacity onPress={onPress} style={WelcomeStyle.botao}>
-              <Text style={WelcomeStyle.botaoTxt}>Entrar</Text>
-            </TouchableOpacity>
+            <SoBotao
+              textstyle={WelcomeStyle.botaoTxt}
+              text="Entrar"
+              onPress={onPress}
+              botaostyle={WelcomeStyle.botao}
+            />
 
             <View style={WelcomeStyle.divBotao}>
               <Text style={WelcomeStyle.txtBotao1}>Não possui conta? </Text>
               <View>
-                <TouchableOpacity onPress={cadastrar}>
-                  <Text>
-                    <Text style={WelcomeStyle.txtBotao}>Cadastre-se</Text>.
-                  </Text>
-                </TouchableOpacity>
+                <SoBotao
+                  textstyle={WelcomeStyle.txtBotao}
+                  text="Cadastre-se"
+                  onPress={cadastrar}
+                />
               </View>
             </View>
           </View>

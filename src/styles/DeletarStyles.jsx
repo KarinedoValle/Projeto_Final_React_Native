@@ -9,7 +9,7 @@ const DeletarStyle = StyleSheet.create({
     marginBottom: 60,
     textAlign: "center",
     fontSize: 30,
-    marginTop: 20,
+    marginTop: 5,
     color: "#092834",
     fontWeight: "bold",
   },
@@ -18,9 +18,9 @@ const DeletarStyle = StyleSheet.create({
     alignItems: "center",
     textAlignVertical: "center",
     padding: 10,
-    borderColor: '#f70000',
+    borderColor: "#f70000",
     borderWidth: 1,
-    backgroundColor: '#f70000',
+    backgroundColor: "#f70000",
     borderRadius: 10,
   },
   botaoTxt: {
@@ -60,9 +60,9 @@ const DeletarStyle = StyleSheet.create({
     marginTop: 40,
     textAlign: "center",
     fontSize: 15,
-    color: '#f70000',
+    color: "#f70000",
   },
-  botaoBuscar:{
+  botaoBuscar: {
     marginTop: 30,
     marginBottom: 40,
     alignItems: "center",
@@ -72,7 +72,7 @@ const DeletarStyle = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "#092834",
     borderRadius: 10,
-  }
+  },
 });
 
 export default DeletarStyle;

@@ -5,10 +5,11 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  Alert
+  Alert,
 } from "react-native";
 import Api from "../api/Api";
 import DeletarStyle from "../styles/DeletarStyles";
+import SoBotao from "../components/SoBotao";
 
 function DeletarFuncionarios() {
   const [id, setId] = useState("");
@@ -18,9 +19,17 @@ function DeletarFuncionarios() {
     if (id !== "") {
       Api.delete(`/funcionario/${id}`)
         .then((response) => {
-          Alert.alert("Sucesso","Funcionário deletado!")
+          Alert.alert("Sucesso", "Funcionário deletado!");
+          setId();
+          setNome();
+          setCpf();
+          setDados({});
+          console.log("vai filho");
         })
-        .catch((error) => Alert.alert('Erro', 'Não foi possível deletar o funcionário'));
+        .catch((error) => {
+          Alert.alert("Erro", "Não foi possível deletar o funcionário");
+          console.log("vou");
+        });
     } else {
       Alert.alert("Por favor, digite um Id.");
     }
@@ -32,9 +41,9 @@ function DeletarFuncionarios() {
         .then((response) => {
           setDados(response.data);
         })
-        .catch((error) => console.log('Deu erro'));
+        .catch((error) => console.log("Deu erro"));
     }
-  }
+  };
 
   return (
     <>
@@ -46,22 +55,30 @@ function DeletarFuncionarios() {
             onChangeText={(text) => {
               setId(text);
             }}
-            placeholder = "Insira um Id"></TextInput>
+            placeholder="Insira um Id"
+            value={id}
+          ></TextInput>
           <View style={DeletarStyle.dados}>
             <Text style={DeletarStyle.txt}>Nome: {dados.nome}</Text>
             <Text style={DeletarStyle.txt}>CPF: {dados.cpf}</Text>
           </View>
           <View>
-          <TouchableOpacity style={DeletarStyle.botaoBuscar} onPress={buscar}>
-            <Text style={DeletarStyle.botaoTxt}>Buscar</Text>
-          </TouchableOpacity>
+            <SoBotao
+              textstyle={DeletarStyle.botaoTxt}
+              text="Buscar"
+              onPress={buscar}
+              botaostyle={DeletarStyle.botaoBuscar}
+            />
           </View>
           <Text style={DeletarStyle.txtmsg}>
             Tem certeza que deseja deletar este funcionário?
           </Text>
-          <TouchableOpacity style={DeletarStyle.botao} onPress={deletar}>
-            <Text style={DeletarStyle.botaoTxt}>Confirmar</Text>
-          </TouchableOpacity>
+          <SoBotao
+            textstyle={DeletarStyle.botaoTxt}
+            text="Confirmar"
+            onPress={deletar}
+            botaostyle={DeletarStyle.botao}
+          />
         </View>
       </SafeAreaView>
     </>

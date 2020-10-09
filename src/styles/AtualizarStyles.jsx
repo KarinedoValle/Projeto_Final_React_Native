@@ -9,7 +9,6 @@ const AtualizarStyle = StyleSheet.create({
     marginBottom: 60,
     textAlign: "center",
     fontSize: 30,
-    marginTop: 20,
     color: "#092834",
     fontWeight: "bold",
   },
@@ -25,7 +24,7 @@ const AtualizarStyle = StyleSheet.create({
   },
   txt: {
     fontWeight: "bold",
-    color: "#fff"
+    color: "#fff",
   },
   input: {
     borderColor: "#092834",
@@ -33,7 +32,7 @@ const AtualizarStyle = StyleSheet.create({
     borderRadius: 10,
     textAlign: "center",
     padding: 5,
-    marginBottom:8,
+    marginBottom: 8,
   },
   fundo: {
     flex: 1,
@@ -42,7 +41,7 @@ const AtualizarStyle = StyleSheet.create({
   dados: {
     fontSize: 15,
     marginTop: 20,
-  }
+  },
 });
 
 export default AtualizarStyle;

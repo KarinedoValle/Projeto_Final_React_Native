@@ -9,7 +9,7 @@ const BuscarStyle = StyleSheet.create({
     marginBottom: 60,
     textAlign: "center",
     fontSize: 30,
-    marginTop: 20,
+    marginTop: 5,
     color: "#092834",
     fontWeight: "bold",
   },
@@ -34,7 +34,7 @@ const BuscarStyle = StyleSheet.create({
     borderColor: "gray",
     borderBottomWidth: 1,
     fontSize: 15,
-    color: "#fff"
+    color: "#fff",
   },
   input: {
     borderColor: "#092834",
@@ -63,7 +63,7 @@ const BuscarStyle = StyleSheet.create({
     textAlign: "justify",
     marginVertical: 3,
     fontSize: 15,
-    color: "#fff"
+    color: "#fff",
   },
 });
 

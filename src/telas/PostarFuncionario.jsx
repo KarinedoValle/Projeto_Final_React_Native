@@ -9,6 +9,7 @@ import {
 import { TextInput } from "react-native-gesture-handler";
 import Api from "../api/Api";
 import InserirStyle from "../styles/InserirStyles";
+import SoBotao from "../components/SoBotao";
 
 function PostarFuncionarios({ navigation }) {
   const [id, setId] = useState("");
@@ -34,14 +35,14 @@ function PostarFuncionarios({ navigation }) {
     }
     const funcionarioSalvo = funcionarios.filter((funcionario) => {
       if (funcionario.cpf === cpf) {
-        console.log(funcionario.cpf)
+        console.log(funcionario.cpf);
         return true;
       }
       return false;
     });
 
     if (funcionarioSalvo.length <= 0) {
-      console.log('retorno da verificação', funcionarioSalvo)
+      console.log("retorno da verificação", funcionarioSalvo);
       Api.post(`/funcionario`, { nome: nome, cpf: cpf })
         .then(() => {
           Alert.alert("Usuário cadastrado com sucesso!");
@@ -50,7 +51,7 @@ function PostarFuncionarios({ navigation }) {
           console.log(error);
         });
     } else {
-      console.log('retorno da else', funcionarioSalvo)
+      console.log("retorno da else", funcionarioSalvo);
       Alert.alert("Este CPF já está cadastrado.");
     }
   };
@@ -74,9 +75,12 @@ function PostarFuncionarios({ navigation }) {
             }}
             placeholder="CPF"
           ></TextInput>
-          <TouchableOpacity style={InserirStyle.botao} onPress={salvar}>
-            <Text style={InserirStyle.botaoTxt}>Enviar</Text>
-          </TouchableOpacity>
+          <SoBotao
+            textstyle={InserirStyle.botaoTxt}
+            text="Enviar"
+            onPress={salvar}
+            botaostyle={InserirStyle.botao}
+          />
         </View>
       </SafeAreaView>
     </>

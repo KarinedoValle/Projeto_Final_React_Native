@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Text, TextInput, View, SafeAreaView, TouchableOpacity, Alert } from "react-native";
+import {
+  Text,
+  TextInput,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import Api from "../api/Api";
 import Funcionarios from "../Models/FuncionarioModel";
 import BuscarStyle from "../styles/BuscarStyles";
+import SoBotao from "../components/SoBotao";
 
 function Buscar() {
   const [id, setId] = useState("");
@@ -15,7 +23,8 @@ function Buscar() {
         .then((response) => {
           if (response.data !== null) {
             setDATA(response.data);
-          }else{
+            setId("");
+          } else {
             setDATA("");
           }
         })
@@ -26,11 +35,14 @@ function Buscar() {
           }
           if (func === null) {
             setDATA("");
-            Alert.alert('Erro','Não existe um funcionário com o id especificado')
+            Alert.alert(
+              "Erro",
+              "Não existe um funcionário com o id especificado"
+            );
           }
         });
     }
-  }
+  };
 
   return (
     <>
@@ -43,6 +55,7 @@ function Buscar() {
               setId(text);
             }}
             placeholder="Digite um Id"
+            value={id}
           ></TextInput>
           <View style={BuscarStyle.dados}>
             <Text style={BuscarStyle.txt}>
@@ -55,9 +68,12 @@ function Buscar() {
               <Text style={BuscarStyle.txt1}>CPF:</Text> {DATA.cpf}
             </Text>
           </View>
-          <TouchableOpacity onPress={onPress} style={BuscarStyle.botao}>
-              <Text style={BuscarStyle.botaoTxt}>Buscar</Text>
-            </TouchableOpacity>
+          <SoBotao
+            textstyle={BuscarStyle.botaoTxt}
+            text="Buscar"
+            onPress={onPress}
+            botaostyle={BuscarStyle.botao}
+          />
         </View>
       </SafeAreaView>
     </>

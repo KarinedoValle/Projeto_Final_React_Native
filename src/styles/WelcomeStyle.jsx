@@ -11,7 +11,7 @@ const WelcomeStyle = StyleSheet.create({
     marginBottom: 30,
   },
   botao: {
-    marginTop: 30,
+    marginTop: 10,
     alignItems: "center",
     textAlignVertical: "center",
     padding: 10,
@@ -29,7 +29,7 @@ const WelcomeStyle = StyleSheet.create({
     backgroundColor: "#feffe8",
   },
   img: {
-    marginTop: 60,
+    marginTop: 100,
     marginBottom: 80,
     alignSelf: "center",
     padding: 90,

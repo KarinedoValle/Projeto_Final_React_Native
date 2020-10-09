@@ -10,7 +10,7 @@ const ListarStyle = StyleSheet.create({
     marginBottom: 40,
     textAlign: "center",
     fontSize: 30,
-    marginTop: 20,
+    marginTop: 5,
     color: "#092834",
     fontWeight: "bold",
   },
@@ -35,6 +35,7 @@ const ListarStyle = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "#092834",
     borderRadius: 10,
+    marginRight: 8,
   },
 });
 
