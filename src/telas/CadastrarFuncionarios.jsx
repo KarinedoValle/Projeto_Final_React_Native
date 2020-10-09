@@ -47,12 +47,13 @@ function CadastrarFuncionarios({ navigation, route }) {
       Api.post(`/funcionario`, { nome: nome, cpf: cpf })
         .then(() => {
           Alert.alert("Usuário cadastrado com sucesso!");
+          navigation.navigate("Welcome");
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      Alert.alert("Este CPF já está cadastrado.");
+      Alert.alert("Erro ao cadastrar CPF.");
       navigation.navigate("Welcome");
     }
   };

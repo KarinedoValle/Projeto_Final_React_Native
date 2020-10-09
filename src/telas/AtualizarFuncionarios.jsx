@@ -34,7 +34,7 @@ function AtualizarFuncionarios() {
         Alert.alert("Sucesso", "Funcionário atualizado!");
       })
       .catch((error) => {
-        Alert.alert("Erro!", "Não foi possível atualizazar!");
+        Alert.alert("Erro!", "Não foi possível atualizar!");
         console.log(error)
       });
   };

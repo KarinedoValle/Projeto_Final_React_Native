@@ -24,6 +24,7 @@ function ListarFuncionarios() {
         }
         setDATA(await Funcionarios.query(options))
       }
+      pegarListagem()
     })
   });
 

@@ -52,7 +52,7 @@ function PostarFuncionarios({ navigation }) {
         });
     } else {
      
-      Alert.alert("Este CPF já está cadastrado.");
+      Alert.alert("Erro ao cadastrar CPF.");
     }
   };
 
